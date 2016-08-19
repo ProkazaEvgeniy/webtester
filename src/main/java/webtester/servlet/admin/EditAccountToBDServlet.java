@@ -20,7 +20,7 @@ public class EditAccountToBDServlet extends AbstractServlet {
 			throws ServletException, IOException {
 		AccountForm form = createForm(AccountForm.class, req);
 		int n = getAdminServise().update(form);
-		resp.sendRedirect("/admin/home");
+		forwardTopage("/admin/home", req, resp);
 	}
 
 }

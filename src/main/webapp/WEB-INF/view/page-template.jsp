@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="/static/css/bootstrap.css">
 <link rel="stylesheet" href="/static/css/bootstrap-theme.css">
 <link rel="stylesheet" href="/static/css/app.css">
-
 <link rel="shortcut icon" href="/static/images/favicon.png"
 	type="/image/png">
 
@@ -22,11 +21,12 @@
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<div class="text">
-					<img src="/static/images/favicon_small.png">
-					<h2>Web Tester system</h2>
+					<span>
+						<h2>Web Tester system</h2>
+					</span>
 				</div>
-				<div class="text">
 					<a href="/logout" class="btn btn-primary">Logout</a>
+				<div class="text">
 				</div>
 			</div>
 		</nav>
