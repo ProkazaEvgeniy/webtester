@@ -10,8 +10,10 @@ import webtester.repository.AccountRepository;
 import webtester.repository.AccountRoleRepository;
 import webtester.repository.RepositoryFactory;
 import webtester.repository.RoleRepository;
+import webtester.repository.TestRepository;
 import webtester.service.AdminService;
 import webtester.service.CommonServise;
+import webtester.service.TutorService;
 
 public final class ServiceManager {
 	private static final String SERVICE_MANADER = "SERVICE_MANADER";
@@ -31,6 +33,8 @@ public final class ServiceManager {
 	private final CommonServise commonServise;
 	private final AdminService adminService;
 	private final BasicDataSource dataSource;
+	private final TestRepository testRepository;
+	private final TutorService tutorService;
 
 	public CommonServise getCommonServise() {
 		return commonServise;
@@ -39,18 +43,22 @@ public final class ServiceManager {
 	public AdminService getAdminService() {
 		return adminService;
 	}
+	
+	public TutorService getTutorService(){
+		return tutorService;
+	}
 
 	private ServiceManager() {
 		dataSource = buildDataSource();
-//		accountRepositry = new AccountRepositryImpl();
 		accountRepository = RepositoryFactory.createRepository(AccountRepository.class);
 		accountRoleRepository = RepositoryFactory.createRepository(AccountRoleRepository.class);
 		roleReposotory = RepositoryFactory.createRepository(RoleRepository.class);
-//		commonServise = new CommonServiseImpl(accountRepositry, dataSource);
+		testRepository = RepositoryFactory.createRepository(TestRepository.class);
 		commonServise  = (CommonServise) ServiceFactory.createService(dataSource, 
 				new CommonServiseImpl(accountRepository, accountRoleRepository));
 		adminService =  (AdminService) ServiceFactory.createService(dataSource,
 				new AdminServiceImpl(accountRepository, roleReposotory));
+		tutorService = (TutorService) ServiceFactory.createService(dataSource, new TutorServiceImpl(testRepository));
 	}
 
 	public void shutdown() {

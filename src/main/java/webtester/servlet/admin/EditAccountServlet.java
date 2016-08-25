@@ -22,7 +22,9 @@ public class EditAccountServlet extends AbstractServlet {
 			long idAccount = Long.parseLong(id);
 			Account account = getAdminServise().findByEdit(idAccount);
 			req.setAttribute("account", account);
-		} 
-		forwardTopage("admin/account.jsp", req, resp);
+			forwardTopage("admin/accountEdit.jsp", req, resp);
+		} else {
+			forwardTopage("admin/accountAdd.jsp", req, resp);
+		}
 	}
 }

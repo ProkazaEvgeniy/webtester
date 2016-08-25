@@ -1,7 +1,7 @@
 package webtester.form;
 
 
-public class AccountForm {
+public class AccountFormEdit {
 
 	private String login;
 	private String password;
@@ -9,9 +9,9 @@ public class AccountForm {
 	private String lastName;
 	private String secondName;
 	private String email;
-	private Long id;
 	
-	public AccountForm() {
+	
+	public AccountFormEdit() {
 		super();
 	}
 
@@ -63,12 +63,4 @@ public class AccountForm {
 		this.email = email;
 	}
 	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 }

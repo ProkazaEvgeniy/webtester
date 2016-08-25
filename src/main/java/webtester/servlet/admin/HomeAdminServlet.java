@@ -12,7 +12,7 @@ import webtester.model.Account;
 import webtester.servlet.AbstractServlet;
 
 @WebServlet(urlPatterns = { "/admin/home" })
-public class HomeServlet extends AbstractServlet {
+public class HomeAdminServlet extends AbstractServlet {
 	private static final long serialVersionUID = 6071300428245450508L;
 
 	@Override

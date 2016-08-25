@@ -6,14 +6,19 @@
 <div class="row">
 	<div class="col-md-4 col-xs-12 col-sm-10">
 		<div class="panel panel-default">
-			<div class="panel-heading">Account id = ${account.id}</div>
+			<div class="panel-heading">Edit Account for id = ${account.id}
+			</div>
 			<div class="panel-body">
 				<!-- 
-				<form action="/admin/editAccountToBD" method="post">
-				 <form action="/admin/addAccountToBD" method="get">
-				 <form name="simpleForm" action="/admin/addAccount">
 				 -->
 				<form action="/admin/editAccountToBD" method="get">
+					<!-- 
+				 -->
+				 <div class="form-group">
+						<label for="exampleInputLogin">Id</label> <input name="id"
+							class="form-control" id="exampleInputLogin"
+							value="${account.id}" placeholder="id">
+					</div>
 					<div class="form-group">
 						<label for="exampleInputLogin">Login</label> <input name="login"
 							class="form-control" id="exampleInputLogin"
@@ -52,8 +57,6 @@
 
 					<div class="text-center">
 						<button type="submit" name="editAccount" class="btn btn-default">Edit</button>
-						<button type="submit" name="addAccount" class="btn btn-default">Add
-							account</button>
 						<a href="/admin/home" class="btn btn-warning">Cancel</a>
 					</div>
 				</form>

@@ -46,7 +46,6 @@ class CommonServiseImpl implements CommonServise {
 		if (!check) {
 			throw new ValidationException("Role is not valid");
 		}
-
 		return account;
 	}
 
@@ -61,7 +60,7 @@ class CommonServiseImpl implements CommonServise {
 	public String generateRememberMeToken(Account account) {
 		return UUID.randomUUID().toString();
 	}
-
+/*
 	public Account findById(Long id) {
 		Account a = new Account();
 		a.setId(id);
@@ -70,5 +69,5 @@ class CommonServiseImpl implements CommonServise {
 
 		return a;
 	}
-
+*/
 }

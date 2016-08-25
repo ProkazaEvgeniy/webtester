@@ -33,7 +33,7 @@ class AdminServiceImpl implements AdminService {
 	}
 	
 	@Override
-	@Transactional
+	@Transactional(readOnly=false)
 	public int update(AccountForm form) {
 		return accountRepositry.update(form);
 	}

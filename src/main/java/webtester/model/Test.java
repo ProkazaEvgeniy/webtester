@@ -2,18 +2,33 @@ package webtester.model;
 
 import java.io.Serializable;
 
+import webtester.annotation.Column;
+
 public class Test implements Serializable {
 
 	private static final long serialVersionUID = 386830578402508555L;
 
 	private Long id;
+	@Column("id_account")
 	private Long idAccount;
+	@Column("name")
 	private String name;
+	@Column("description")
 	private String description;
+	@Column("duration_per_question")
 	private Integer durationPerQuestion;
 
 	public Test() {
 		super();
+	}
+	
+	public Test(Long idAccount, String name, String description,
+			Integer durationPerQuestion) {
+		super();
+		this.idAccount = idAccount;
+		this.name = name;
+		this.description = description;
+		this.durationPerQuestion = durationPerQuestion;
 	}
 
 	public Long getId() {

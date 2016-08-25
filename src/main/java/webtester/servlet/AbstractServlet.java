@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import webtester.service.AdminService;
 import webtester.service.CommonServise;
+import webtester.service.TutorService;
 import webtester.service.impl.ServiceManager;
 
 public abstract class AbstractServlet extends HttpServlet {
@@ -40,11 +41,16 @@ public abstract class AbstractServlet extends HttpServlet {
 	public AdminService getAdminServise() {
 		return serviceManager.getAdminService();
 	}
+	
+	public TutorService getTutorServise() {
+		return serviceManager.getTutorService();
+	}
 
-	protected void forwardTopage(String page, HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+	protected void forwardTopage(String page, HttpServletRequest req,
+			HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("currentPage", page);
-		req.getRequestDispatcher("/WEB-INF/view/page-template.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/view/page-template.jsp").forward(
+				req, resp);
 	}
 
 	protected <T> T createForm(Class<T> formClass, HttpServletRequest req) {
@@ -58,17 +64,22 @@ public abstract class AbstractServlet extends HttpServlet {
 				field.set(form, convertedValue);
 			}
 			return form;
-		} catch (InstantiationException | IllegalAccessException | SecurityException e) {
+		} catch (InstantiationException | IllegalAccessException
+				| SecurityException e) {
 			throw new RuntimeException(e);
 		}
 	}
 
 	private Object convert(Class<?> type, String value) {
-		if (type == String.class)
+		if (value == null) {
+			return null;
+		} else if (type == String.class)
 			return value;
 		else if (type == Integer.TYPE)
 			return Integer.parseInt(value);
-		else if (type == Boolean.TYPE)
+		else if (type == Long.class) {
+			return Long.parseLong(value);
+		} else if (type == Boolean.TYPE)
 			return value != null;
 		else
 			throw new IllegalArgumentException("Can`t convert to " + type);

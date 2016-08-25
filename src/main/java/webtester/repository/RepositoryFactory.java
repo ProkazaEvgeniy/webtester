@@ -10,8 +10,6 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Proxy;
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -26,12 +24,14 @@ import webtester.annotation.Select;
 import webtester.annotation.Update;
 import webtester.exception.WebtesterApplicationException;
 import webtester.handler.DefaultResultSetHandler;
-import webtester.model.Account;
 
 public class RepositoryFactory {
 
+	@SuppressWarnings("unchecked")
 	public static <T> T createRepository(Class<T> repositoryInterface) {
-		return (T) Proxy.newProxyInstance(RepositoryFactory.class.getClassLoader(), new Class[] { repositoryInterface },
+		return (T) Proxy.newProxyInstance(
+				RepositoryFactory.class.getClassLoader(), 
+				new Class[] { repositoryInterface },
 				new RepositoryInvocationHandler());
 	}
 
@@ -69,7 +69,7 @@ public class RepositoryFactory {
 				Field fields[] = entity.getClass().getDeclaredFields();
 				List<Object> resolvedArgs = new ArrayList<>();
 				for (Field f : fields) {
-					if (f.getName().equals("id") || f.getName().equals("created") || f.getName().equals("active")
+					if (f.getName().equals("created") || f.getName().equals("active")
 							|| Modifier.isStatic(f.getModifiers())) {
 						continue;
 					} else {

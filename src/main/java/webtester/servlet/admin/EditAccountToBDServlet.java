@@ -20,6 +20,11 @@ public class EditAccountToBDServlet extends AbstractServlet {
 			throws ServletException, IOException {
 		AccountForm form = createForm(AccountForm.class, req);
 		int n = getAdminServise().update(form);
-		forwardTopage("admin/home.jsp", req, resp);
+		if (n != 0) {
+			System.out.println("Your data has been stored in the database");
+		} else {
+			System.out.println("Your data could not be stored in the database");
+		}
+		resp.sendRedirect("/admin/home");
 	}
 }

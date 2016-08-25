@@ -8,11 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import webtester.form.AccountForm;
+import webtester.form.AccountFormEdit;
 import webtester.model.Account;
 import webtester.servlet.AbstractServlet;
 
 @WebServlet(urlPatterns = { "/admin/addAccountToBD" })
-public class AddAccountServlet extends AbstractServlet {
+public class AddAccountToBDServlet extends AbstractServlet {
 
 	private static final long serialVersionUID = -107094802202124796L;
 
@@ -30,7 +31,7 @@ public class AddAccountServlet extends AbstractServlet {
 				new Account(login, password, firstName, lastName, secondName,
 						email));
 		System.out.println(account);
-		forwardTopage("/admin/home", req, resp);
+		resp.sendRedirect("/admin/home");
 	}
 
 }

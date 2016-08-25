@@ -4,7 +4,6 @@ import java.util.List;
 
 import webtester.form.AccountForm;
 import webtester.model.Account;
-import webtester.model.Role;
 
 public interface AdminService {
 
@@ -18,7 +17,7 @@ public interface AdminService {
 	
 	Account save(Account account);
 	
-	int update(AccountForm form);
+	int update(AccountForm form/*, long id*/);
 	
 	int deleteAccount(long id);
 
