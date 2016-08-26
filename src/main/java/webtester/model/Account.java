@@ -118,4 +118,13 @@ public class Account implements Serializable {
 		this.created = created;
 	}
 
+	@Override
+	public String toString() {
+		return "Account [id=" + id + ", login=" + login + ", password="
+				+ password + ", firstName=" + firstName + ", lastName="
+				+ lastName + ", secondName=" + secondName + ", email=" + email
+				+ ", active=" + active + ", created=" + created + "]";
+	}
+
+	
 }

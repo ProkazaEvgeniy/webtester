@@ -17,7 +17,7 @@ public interface AccountRepository {
 
 	@Select(sql = "select * from account where id=?")
 	Account findByEdit(Long id);
-
+	
 	@Update(sql = "UPDATE account SET login=?, password=?, first_name=?, last_name=?, second_name=?, email=? where id=?")
 	int update(AccountForm form);
 

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import webtester.form.AccountForm;
 import webtester.model.Account;
+import webtester.model.AccountRole;
 import webtester.servlet.AbstractServlet;
 
 @WebServlet(urlPatterns = { "/admin/addAccountToBD" })
@@ -30,6 +31,9 @@ public class AddAccountToBDServlet extends AbstractServlet {
 				new Account(login, password, firstName, lastName, secondName,
 						email));
 		System.out.println(account);
+		Account accountForRoleDefault = getAdminServise().findByLogin(login);
+		AccountRole accountRole = getAdminServise().save(new AccountRole(accountForRoleDefault.getId(), 4));
+		System.out.println(accountRole);
 		resp.sendRedirect("/admin/home");
 	}
 

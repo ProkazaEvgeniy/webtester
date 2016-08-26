@@ -79,4 +79,10 @@ class AdminServiceImpl implements AdminService {
 	public int deleteAccountRole(long idAccount, long idRole) {
 		return accountRoleRepository.deleteAccountRole(idAccount, idRole);
 	}
+
+	@Override
+	@Transactional
+	public Account findByLogin(String login) {
+		return accountRepositry.findByLogin(login);
+	}
 }

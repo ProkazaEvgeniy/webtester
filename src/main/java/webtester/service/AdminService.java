@@ -27,5 +27,7 @@ public interface AdminService {
 	AccountRole save(AccountRole accountRole);
 	
 	List<AccountRole> findIdAccountRole(Long idAccount);
+	
+	Account findByLogin(String login);
 
 }
