@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import webtester.form.AccountForm;
-import webtester.form.AccountFormEdit;
 import webtester.model.Account;
 import webtester.servlet.AbstractServlet;
 

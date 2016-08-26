@@ -18,9 +18,8 @@ public interface AccountRepository {
 	@Select(sql = "select * from account where id=?")
 	Account findByEdit(Long id);
 
-//	@Update(sql = "UPDATE account SET login=?, password=?, first_name=?, last_name=?, second_name=?, email=?")
 	@Update(sql = "UPDATE account SET login=?, password=?, first_name=?, last_name=?, second_name=?, email=? where id=?")
-	int update(AccountForm form/*, long id*/);
+	int update(AccountForm form);
 
 	@Select(sql = "select * from account")
 	@ReturnType(entityClass = Account.class)

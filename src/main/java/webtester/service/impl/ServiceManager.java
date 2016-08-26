@@ -57,7 +57,7 @@ public final class ServiceManager {
 		commonServise  = (CommonServise) ServiceFactory.createService(dataSource, 
 				new CommonServiseImpl(accountRepository, accountRoleRepository));
 		adminService =  (AdminService) ServiceFactory.createService(dataSource,
-				new AdminServiceImpl(accountRepository, roleReposotory));
+				new AdminServiceImpl(accountRepository, roleReposotory, accountRoleRepository));
 		tutorService = (TutorService) ServiceFactory.createService(dataSource, new TutorServiceImpl(testRepository));
 	}
 

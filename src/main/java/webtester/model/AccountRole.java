@@ -48,4 +48,12 @@ public class AccountRole implements Serializable {
 		this.idRole = idRole;
 	}
 
+	@Override
+	public String toString() {
+		return "AccountRole [id=" + id + ", idAccount=" + idAccount
+				+ ", idRole=" + idRole + "]";
+	}
+	
+	
+
 }

@@ -9,7 +9,7 @@
 
 
 <div class="row">
-	<div class="col-md-10">
+	<div class="col-md-12">
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -17,7 +17,9 @@
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Email</th>
+					<th>Role</th>
 					<th>Actions</th>
+
 				</tr>
 			</thead>
 			<tbody>
@@ -33,15 +35,23 @@
 						<td class="name">${account.firstName}</td>
 						<td>${account.lastName}</td>
 						<td>${account.email}</td>
+						<td>role</td>
 						<td>
-							<div class="btn-group" >
-								<a href="/admin/editAccount?id=${account.id}" type="button" class="btn btn-primary">Edit</a> 
-								<a href="/admin/del?id=${account.id}" type="button" class="btn btn-danger">Delete</a> 
+							<div class="btn-group">
+								<a href="/admin/editAccount?id=${account.id}" type="button" class="btn btn-primary">Edit Account</a> 
+								<a href="/admin/del?id=${account.id}" type="button" class="btn btn-danger">Delete Account</a> 
+								<a href="/admin/establishRole?id=${account.id}" type="button" class="btn btn-default">Establish Role</a>
+								<a href="/admin/deleteRole?id=${account.id}" type="button" class="btn btn-default">Delete Role</a> 
 								<a onclick="hello()" type="button" class="btn btn-success">Enable</a>
 							</div>
 						</td>
 					</tr>
 				</c:forEach>
+				<!-- 
+				<c:forEach var="accountRole" items="${listAccountRole}">
+					<td>${accountRole.idRole}</td>
+				</c:forEach>
+				 -->
 			</tbody>
 		</table>
 		<div class="text-center">
