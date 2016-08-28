@@ -22,7 +22,7 @@ class DefaultRowResultSetHandler<T> implements ResultSetHandler<T> {
 			T entity = classEntity.newInstance();
 			Field[] fields = classEntity.getDeclaredFields();
 			for (Field field : fields) {
-				if (Modifier.isStatic(field.getModifiers())) {
+				if (Modifier.isStatic(field.getModifiers()) | Modifier.isTransient(field.getModifiers())) {
 					continue;
 				}
 				field.setAccessible(true);

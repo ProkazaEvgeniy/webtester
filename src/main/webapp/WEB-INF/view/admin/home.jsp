@@ -35,7 +35,11 @@
 						<td class="name">${account.firstName}</td>
 						<td>${account.lastName}</td>
 						<td>${account.email}</td>
-						<td>role</td>
+						<td> <c:forEach var="roleAccount" items="${account.listRole}">
+						<c:if test="${roleAccount.idRole == 1}">Admin</c:if>
+						<c:if test="${roleAccount.idRole == 2}">Advance Tutor</c:if>
+						<c:if test="${roleAccount.idRole == 3}">Tutor</c:if>
+						<c:if test="${roleAccount.idRole == 4}">Student</c:if><br></c:forEach> </td>
 						<td>
 							<div class="btn-group">
 								<a href="/admin/editAccount?id=${account.id}" type="button" class="btn btn-primary">Edit Account</a> 
@@ -47,11 +51,6 @@
 						</td>
 					</tr>
 				</c:forEach>
-				<!-- 
-				<c:forEach var="accountRole" items="${listAccountRole}">
-					<td>${accountRole.idRole}</td>
-				</c:forEach>
-				 -->
 			</tbody>
 		</table>
 		<div class="text-center">

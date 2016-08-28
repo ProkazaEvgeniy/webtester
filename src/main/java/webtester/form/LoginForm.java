@@ -4,7 +4,7 @@ public class LoginForm {
 	private String login;
 	private String password;
 	private int role;
-	private boolean rememberMe;
+	private Boolean rememberMe;
 
 	public String getLogin() {
 		return login;
@@ -30,11 +30,11 @@ public class LoginForm {
 		this.role = role;
 	}
 
-	public boolean isRememberMe() {
-		return rememberMe;
+	public Boolean isRememberMe() {
+		return rememberMe != null && rememberMe;
 	}
 
-	public void setRememberMe(boolean rememberMe) {
+	public void setRememberMe(Boolean rememberMe) {
 		this.rememberMe = rememberMe;
 	}
 

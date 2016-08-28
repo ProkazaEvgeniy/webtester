@@ -60,14 +60,4 @@ class CommonServiseImpl implements CommonServise {
 	public String generateRememberMeToken(Account account) {
 		return UUID.randomUUID().toString();
 	}
-/*
-	public Account findById(Long id) {
-		Account a = new Account();
-		a.setId(id);
-		a.setLogin("login");
-		a.setPassword("password" + id);
-
-		return a;
-	}
-*/
 }

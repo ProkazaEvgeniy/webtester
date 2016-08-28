@@ -36,5 +36,4 @@ public class AddAccountToBDServlet extends AbstractServlet {
 		System.out.println(accountRole);
 		resp.sendRedirect("/admin/home");
 	}
-
 }

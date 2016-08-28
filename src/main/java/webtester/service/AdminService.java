@@ -13,8 +13,6 @@ public interface AdminService {
 	Account findByEdit(Long id);
 
 	int deleteRole(long id);
-
-//	Role save(Role role);
 	
 	Account save(Account account);
 	

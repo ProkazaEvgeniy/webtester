@@ -6,6 +6,8 @@ import webtester.annotation.Delete;
 import webtester.annotation.Insert;
 import webtester.annotation.ReturnType;
 import webtester.annotation.Select;
+import webtester.annotation.Update;
+import webtester.form.TestForm;
 import webtester.model.Test;
 
 public interface TestRepository {
@@ -22,4 +24,7 @@ public interface TestRepository {
 	
 	@Delete(sql = "delete from test where id=?")
 	int deleteTest(long id);
+	
+	@Update(sql = "UPDATE test SET name=?, description=?, duration_per_question=? where id=?")
+	int update(TestForm form);
 }

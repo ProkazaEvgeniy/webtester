@@ -2,6 +2,7 @@ package webtester.service;
 
 import java.util.List;
 
+import webtester.form.TestForm;
 import webtester.model.Test;
 
 public interface TutorService {
@@ -13,4 +14,6 @@ public interface TutorService {
 	Test findByEdit(Long id);
 	
 	int deleteTest(long id);
+	
+	int update(TestForm form);
 }

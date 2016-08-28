@@ -31,8 +31,8 @@
 
 				<c:forEach var="test" items="${list }">
 					<tr>
-						<td scope="row">${test.id}</td>
-						<td class="name">${test.idAccount}</td>
+						<td>${test.id}</td>
+						<td>${test.idAccount}</td>
 						<td>${test.name}</td>
 						<td>${test.description}</td>
 						<td>${test.durationPerQuestion}</td>

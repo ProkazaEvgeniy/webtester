@@ -8,8 +8,6 @@ public interface CommonServise {
 
 	Account login(LoginForm form) throws ValidationException;
 
-//	Account findById(Long id);
-
 	String generateRememberMeToken(Account account);
 
 	Account findByRememberMeToken(String rememberMeToken);

@@ -29,7 +29,12 @@ class AdminServiceImpl implements AdminService {
 	@Override
 	@Transactional
 	public List<Account> findAll() {
-		return accountRepositry.findAll();
+		List<Account> accounts = accountRepositry.findAll();
+		for(Account account : accounts){
+			List<AccountRole> listRole = accountRoleRepository.findIdAccountRole(account.getId());
+			account.setListRole(listRole);
+		}
+		return accounts;
 	}
 
 	@Override

@@ -19,12 +19,6 @@ public class HomeAdminServlet extends AbstractServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<Account> list = getAdminServise().findAll();
 		req.setAttribute("list", list);
-		
-		/*
-		List<AccountRole> listAccountRole = getAdminServise().findIdAccountRole(1L);
-		req.setAttribute("listAccountRole", listAccountRole);
-		*/
-		
 		forwardTopage("admin/home.jsp", req, resp);
 	}
 }

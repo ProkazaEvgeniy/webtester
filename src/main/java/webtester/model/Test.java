@@ -8,7 +8,6 @@ public class Test implements Serializable {
 
 	private static final long serialVersionUID = 386830578402508555L;
 
-	private Long id;
 	@Column("id_account")
 	private Long idAccount;
 	@Column("name")
@@ -17,6 +16,9 @@ public class Test implements Serializable {
 	private String description;
 	@Column("duration_per_question")
 	private Integer durationPerQuestion;
+	private transient Account account;
+	@Column("id")
+	private Long id;
 
 	public Test() {
 		super();
@@ -69,6 +71,21 @@ public class Test implements Serializable {
 
 	public void setDurationPerQuestion(Integer durationPerQuestion) {
 		this.durationPerQuestion = durationPerQuestion;
+	}
+
+	@Override
+	public String toString() {
+		return "Test [id=" + id + ", idAccount=" + idAccount + ", name=" + name
+				+ ", description=" + description + ", durationPerQuestion="
+				+ durationPerQuestion + "]";
+	}
+
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
 	}
 
 }

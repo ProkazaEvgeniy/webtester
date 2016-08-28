@@ -47,6 +47,7 @@
 					</div>
 					<div class="text-center">
 						<button type="submit" class="btn btn-default">Submit</button>
+						<a href="/regAccount" class="btn btn-primary">Registration</a>
 					</div>
 
 <!--  

@@ -70,7 +70,7 @@ public class RepositoryFactory {
 				List<Object> resolvedArgs = new ArrayList<>();
 				for (Field f : fields) {
 					if (f.getName().equals("created") || f.getName().equals("active")
-							|| Modifier.isStatic(f.getModifiers())) {
+							|| Modifier.isStatic(f.getModifiers())|| Modifier.isTransient(f.getModifiers())) {
 						continue;
 					} else {
 						f.setAccessible(true);
@@ -108,7 +108,7 @@ public class RepositoryFactory {
 				List<Object> resolvedArgs = new ArrayList<>();
 				for (Field f : fields) {
 					if (f.getName().equals("id") || f.getName().equals("created") || f.getName().equals("active")
-							|| Modifier.isStatic(f.getModifiers())) {
+							|| Modifier.isStatic(f.getModifiers())|| Modifier.isTransient(f.getModifiers())) {
 						continue;
 					} else {
 						f.setAccessible(true);

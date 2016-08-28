@@ -2,10 +2,14 @@ package webtester.model;
 
 import java.sql.Timestamp;
 
+import webtester.annotation.Column;
+
 public class Role {
 
 	private int id;
+	@Column("name")
 	private String name;
+	@Column("created")
 	private Timestamp created;
 
 	public Role(String name) {

@@ -12,23 +12,28 @@
 				 -->
 				<form action="/tutor/editTestToBD" method="get">
 					<div class="form-group">
+						<label for="exampleInputName">Id</label> <input
+							name="id" type="text" class="form-control"
+							value="${test.id}" id="exampleInputDescription">
+					</div>
+					<div class="form-group">
 						<label for="exampleInputName">Test name</label> <input
 							name="name" type="text" class="form-control"
-							value="${test.name}" id="exampleInputDescription" placeholder="Test name">
+							value="${test.name}" id="exampleInputDescription">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputDescription">Description</label> <input
 							name="description" type="text" class="form-control"
-							value="${test.description}" id="exampleInputDescription" placeholder="Description">
+							value="${test.description}" id="exampleInputDescription">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputDurationPerQuestion">Duration per Question</label> <input
 							name="durationPerQuestion" type="text" class="form-control"
-							value="${test.durationPerQuestion}" id="exampleInputDurationPerQuestion" placeholder="Duration Per Question">
+							value="${test.durationPerQuestion}" id="exampleInputDurationPerQuestion">
 					</div>
 					
 					<div class="text-center">
-						<button type="submit" name="addAccount" class="btn btn-default">Edit
+						<button type="submit" class="btn btn-default">Edit
 							Test</button>
 						<a href="/tutor/home" class="btn btn-warning">Cancel</a>
 					</div>

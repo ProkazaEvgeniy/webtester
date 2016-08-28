@@ -41,7 +41,7 @@ public abstract class AbstractServlet extends HttpServlet {
 	public AdminService getAdminServise() {
 		return serviceManager.getAdminService();
 	}
-	
+
 	public TutorService getTutorServise() {
 		return serviceManager.getTutorService();
 	}
@@ -71,15 +71,19 @@ public abstract class AbstractServlet extends HttpServlet {
 	}
 
 	private Object convert(Class<?> type, String value) {
-		if (value == null) {
+		if (value == null)
 			return null;
-		} else if (type == String.class)
+		else if (type == String.class)
 			return value;
 		else if (type == Integer.TYPE)
 			return Integer.parseInt(value);
-		else if (type == Long.class) {
+		else if (type == Integer.class)
+			return Integer.parseInt(value);
+		else if (type == Long.class)
 			return Long.parseLong(value);
-		} else if (type == Boolean.TYPE)
+		else if (type == Boolean.TYPE)
+			return value != null;
+		else if (type == Boolean.class)
 			return value != null;
 		else
 			throw new IllegalArgumentException("Can`t convert to " + type);

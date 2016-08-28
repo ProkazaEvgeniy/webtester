@@ -2,21 +2,13 @@ package webtester.form;
 
 public class TestForm {
 
-	private Long idAccount;
 	private String name;
 	private String description;
-	private int durationPerQuestion;
+	private Integer durationPerQuestion;
+	private Long id;
 	
 	public TestForm() {
 		super();
-	}
-
-	public Long getIdAccount() {
-		return idAccount;
-	}
-
-	public void setIdAccount(Long idAccount) {
-		this.idAccount = idAccount;
 	}
 
 	public String getName() {
@@ -35,12 +27,20 @@ public class TestForm {
 		this.description = description;
 	}
 
-	public int getDurationPerQuestion() {
+	public Integer getDurationPerQuestion() {
 		return durationPerQuestion;
 	}
 
-	public void setDurationPerQuestion(int durationPerQuestion) {
+	public void setDurationPerQuestion(Integer durationPerQuestion) {
 		this.durationPerQuestion = durationPerQuestion;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 	

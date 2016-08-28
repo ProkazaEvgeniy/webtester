@@ -24,7 +24,7 @@ public interface AccountRepository {
 	@Select(sql = "select * from account")
 	@ReturnType(entityClass = Account.class)
 	List<Account> findAll();
-
+	
 	@Insert(sql = "insert into account values(nextval('account_seq'),?,?,?,?,?,?)")
 	Account save(Account account);
 

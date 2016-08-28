@@ -58,7 +58,7 @@ public final class ServiceManager {
 				new CommonServiseImpl(accountRepository, accountRoleRepository));
 		adminService =  (AdminService) ServiceFactory.createService(dataSource,
 				new AdminServiceImpl(accountRepository, roleReposotory, accountRoleRepository));
-		tutorService = (TutorService) ServiceFactory.createService(dataSource, new TutorServiceImpl(testRepository));
+		tutorService = (TutorService) ServiceFactory.createService(dataSource, new TutorServiceImpl(testRepository, accountRepository));
 	}
 
 	public void shutdown() {
