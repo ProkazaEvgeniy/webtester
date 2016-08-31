@@ -15,8 +15,9 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>Id Test</th>
-					<th>Question Name</th>
+					<th>Id Question</th>
+					<th>Answer Name</th>
+					<th>Correct</th>
 					<th>Action</th>
 				</tr>
 			</thead>
@@ -27,16 +28,16 @@
 					</tr>
 				</c:if>
 
-				<c:forEach var="question" items="${list }">
+				<c:forEach var="answer" items="${list }">
 					<tr>
-						<td>${question.id}</td>
-						<td>${question.idTest}</td>
-						<td>${question.name}</td>
+						<td>${answer.id}</td>
+						<td>${answer.idQuestion}</td>
+						<td>${answer.name}</td>
+						<td>${answer.correct}</td>
 						<td>
 							<div class="btn-group" >
-								<a href="/advance/editQuestion?id=${question.id}" type="button" class="btn btn-primary">Edit</a> 
-								<a href="/advance/del?id=${question.id}" type="button" class="btn btn-danger">Delete</a> 
-								
+								<a href="/advance/editAnswer?id=${answer.id}" type="button" class="btn btn-primary">Edit</a> 
+								<a href="/advance/delAnswer?id=${answer.id}" type="button" class="btn btn-danger">Delete</a> 
 							</div>
 						</td>
 					</tr>
@@ -44,8 +45,7 @@
 			</tbody>
 		</table>
 		<div class="text-center">
-			<a href="/advance/addQuestion" class="btn btn-primary">Add Question</a>
-			<a href="/advance/home-answer" class="btn btn-default">Show Answer</a>
+			<a href="/advance/addAnswer" class="btn btn-primary">Add Answer</a>
 		</div>
 	</div>
 </div>

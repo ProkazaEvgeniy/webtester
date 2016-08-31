@@ -6,7 +6,7 @@
 <div class="row">
 	<div class="col-md-4 col-xs-12 col-sm-10">
 		<div class="panel panel-default">
-			<div class="panel-heading">Add Test for id = ${test.id}</div>
+			<div class="panel-heading">Edit Test for id = ${test.id}</div>
 			<div class="panel-body">
 				<!-- 
 				 -->
@@ -35,6 +35,7 @@
 					<div class="text-center">
 						<button type="submit" class="btn btn-default">Edit
 							Test</button>
+						<a href="/advance/home" class="btn btn-default">Show questions</a>
 						<a href="/tutor/home" class="btn btn-warning">Cancel</a>
 					</div>
 				</form>

@@ -48,4 +48,9 @@ public class Question implements Serializable {
 		this.name = name;
 	}
 
+	@Override
+	public String toString() {
+		return "Question [id=" + id + ", idTest=" + idTest + ", name=" + name
+				+ "]";
+	}
 }

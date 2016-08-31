@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import webtester.service.AdminService;
+import webtester.service.AdvanceTutorService;
 import webtester.service.CommonServise;
 import webtester.service.TutorService;
 import webtester.service.impl.ServiceManager;
@@ -44,6 +45,10 @@ public abstract class AbstractServlet extends HttpServlet {
 
 	public TutorService getTutorServise() {
 		return serviceManager.getTutorService();
+	}
+	
+	public AdvanceTutorService getAdvanceTutorService() {
+		return serviceManager.getAdvanceTutorService();
 	}
 
 	protected void forwardTopage(String page, HttpServletRequest req,

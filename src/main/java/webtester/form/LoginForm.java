@@ -31,7 +31,7 @@ public class LoginForm {
 	}
 
 	public Boolean isRememberMe() {
-		return rememberMe != null && rememberMe;
+		return rememberMe != null && rememberMe.booleanValue();
 	}
 
 	public void setRememberMe(Boolean rememberMe) {

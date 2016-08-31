@@ -20,10 +20,11 @@ public class Answer implements Serializable {
 		super();
 	}
 	
-	public Answer(Long idQuestion, String name){
+	public Answer(Long idQuestion, String name, Boolean correct){
 		super();
 		this.idQuestion = idQuestion;
 		this.name = name;
+		this.correct = correct;
 	}
 
 	public Long getId() {
@@ -58,4 +59,10 @@ public class Answer implements Serializable {
 		this.correct = correct;
 	}
 
+	@Override
+	public String toString() {
+		return "Answer [id=" + id + ", idQuestion=" + idQuestion + ", name="
+				+ name + ", correct=" + correct + "]";
+	}
+	
 }
