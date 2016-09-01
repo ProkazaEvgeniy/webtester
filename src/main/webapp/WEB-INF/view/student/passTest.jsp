@@ -30,7 +30,7 @@
 					<tr>
 						<td>${status.index+1}</td>
 						<td><c:forEach var="q" items="${test.question}">${q.name}</c:forEach></td>
-						<td>a</td>
+						<td><c:forEach var="a" items="${test.answer}">${a.name}</c:forEach></td>
 						<td>
 							<div class="btn-group" >
 								<a href="/advance/editAnswer?id=#" type="button" class="btn btn-primary">Edit</a> 
