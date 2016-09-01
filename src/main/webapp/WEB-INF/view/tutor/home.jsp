@@ -15,7 +15,7 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>Id Account</th>
+					<th>Account Login</th>
 					<th>Test Name</th>
 					<th>Description</th>
 					<th>Duration per Question</th>
@@ -32,7 +32,7 @@
 				<c:forEach var="test" items="${list }">
 					<tr>
 						<td>${test.id}</td>
-						<td>${test.idAccount}</td>
+						<td><c:out value="${test.account.login}"></c:out></td>
 						<td>${test.name}</td>
 						<td>${test.description}</td>
 						<td>${test.durationPerQuestion}</td>
@@ -48,6 +48,7 @@
 		</table>
 		<div class="text-center">
 			<a href="/tutor/addTest" class="btn btn-primary">Add test</a>
+			<a href="/advance/home" class="btn btn-default">Show questions</a>
 		</div>
 	</div>
 </div>

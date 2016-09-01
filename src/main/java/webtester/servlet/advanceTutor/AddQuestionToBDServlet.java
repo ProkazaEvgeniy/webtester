@@ -19,6 +19,7 @@ public class AddQuestionToBDServlet extends AbstractServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		
 		QuestionForm form = createForm(QuestionForm.class, req);
 		Long idTest = form.getIdTest();
 		String name = form.getName();

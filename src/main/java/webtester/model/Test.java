@@ -1,6 +1,7 @@
 package webtester.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import webtester.annotation.Column;
 
@@ -17,6 +18,8 @@ public class Test implements Serializable {
 	@Column("duration_per_question")
 	private Integer durationPerQuestion;
 	private transient Account account;
+	private transient List<Question> question;
+	private transient List<Answer> answer;
 	@Column("id")
 	private Long id;
 
@@ -88,4 +91,22 @@ public class Test implements Serializable {
 		this.account = account;
 	}
 
+	public List<Question> getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(List<Question> question) {
+		this.question = question;
+	}
+
+	public List<Answer> getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(List<Answer> answer) {
+		this.answer = answer;
+	}
+
+	
+	
 }

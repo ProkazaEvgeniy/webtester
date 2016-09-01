@@ -40,7 +40,7 @@ class AdminServiceImpl implements AdminService {
 	@Override
 	@Transactional
 	public Account findByEdit(Long id) {
-		return accountRepositry.findByEdit(id);
+		return accountRepositry.findByID(id);
 	}
 
 	@Override

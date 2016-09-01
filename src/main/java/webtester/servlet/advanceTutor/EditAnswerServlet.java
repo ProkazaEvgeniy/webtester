@@ -1,6 +1,7 @@
 package webtester.servlet.advanceTutor;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import webtester.model.Answer;
+import webtester.model.Question;
 import webtester.servlet.AbstractServlet;
 
 @WebServlet(urlPatterns={"/advance/editAnswer", "/advance/addAnswer"})
@@ -25,6 +27,8 @@ public class EditAnswerServlet extends AbstractServlet {
 			req.setAttribute("answer", answer);
 			forwardTopage("advance/editAnswer.jsp", req, resp);
 		} else {
+			List<Question> listQuestion = getAdvanceTutorService().findAllListQuestion();
+			req.setAttribute("listQuestion", listQuestion);
 			forwardTopage("advance/addAnswer.jsp", req, resp);
 		}
 	}

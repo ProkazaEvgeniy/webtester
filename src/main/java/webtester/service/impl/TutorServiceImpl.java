@@ -4,6 +4,7 @@ import java.util.List;
 
 import webtester.annotation.Transactional;
 import webtester.form.TestForm;
+import webtester.model.Account;
 import webtester.model.Test;
 import webtester.repository.AccountRepository;
 import webtester.repository.TestRepository;
@@ -29,13 +30,18 @@ public class TutorServiceImpl implements TutorService {
 	@Override
 	@Transactional
 	public List<Test> findAll() {
-		return testRepository.findAll();
+		List<Test> tests = testRepository.findAll();
+		for(Test test : tests){
+			Account account = accountRepositry.findByID(test.getIdAccount());
+			test.setAccount(account);
+		}
+		return tests;
 	}
 	
 	@Override
 	@Transactional
-	public Test findByEdit(Long id) {
-		return testRepository.findByEdit(id);
+	public Test findByID(Long id) {
+		return testRepository.findByID(id);
 	}
 	
 	@Override

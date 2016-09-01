@@ -9,8 +9,6 @@ public class Role {
 	private int id;
 	@Column("name")
 	private String name;
-	@Column("created")
-	private Timestamp created;
 
 	public Role(String name) {
 		super();
@@ -35,16 +33,6 @@ public class Role {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public Timestamp getCreated() {
-		return created;
-	}
-	public void setCreated(Timestamp created) {
-		this.created = created;
-	}
-	@Override
-	public String toString() {
-		return "Role [id=" + id + ", name=" + name + ", created=" + created + "]";
 	}
 	public Object getIdModel(){
 		return getId();

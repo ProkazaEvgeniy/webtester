@@ -15,7 +15,7 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>Id Question</th>
+					<th>Question Name</th>
 					<th>Answer Name</th>
 					<th>Correct</th>
 					<th>Action</th>
@@ -31,7 +31,7 @@
 				<c:forEach var="answer" items="${list }">
 					<tr>
 						<td>${answer.id}</td>
-						<td>${answer.idQuestion}</td>
+						<td><c:out value="${answer.question.name}"></c:out></td>
 						<td>${answer.name}</td>
 						<td>${answer.correct}</td>
 						<td>

@@ -21,7 +21,7 @@ public class EditTestServlet extends AbstractServlet {
 		String id = req.getParameter("id");
 		if (id != null) {
 			long idTest = Long.parseLong(id);
-			Test test = getTutorServise().findByEdit(idTest);
+			Test test = getTutorServise().findByID(idTest);
 			req.setAttribute("test", test);
 			forwardTopage("tutor/editTest.jsp", req, resp);
 		} else {

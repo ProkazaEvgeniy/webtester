@@ -7,31 +7,40 @@ import webtester.form.AnswerForm;
 import webtester.form.QuestionForm;
 import webtester.model.Answer;
 import webtester.model.Question;
+import webtester.model.Test;
 import webtester.repository.AnswerRepository;
 import webtester.repository.QuestionRepository;
+import webtester.repository.TestRepository;
 import webtester.service.AdvanceTutorService;
 
 public class AdvanceTutorServiceImpl implements AdvanceTutorService {
 
 	private final QuestionRepository questionRepository;
 	private final AnswerRepository answerRepository;
+	private final TestRepository testRepository;
 	
-	AdvanceTutorServiceImpl(QuestionRepository questionRepository, AnswerRepository answerRepository){
+	AdvanceTutorServiceImpl(QuestionRepository questionRepository, AnswerRepository answerRepository, TestRepository testRepository){
 		super();
 		this.questionRepository = questionRepository;
 		this.answerRepository = answerRepository;
+		this.testRepository = testRepository;
 	}
 	
 	@Override
 	@Transactional
 	public Question findByEdit(Long id) {
-		return questionRepository.findByEdit(id);
+		return questionRepository.findByID(id);
 	}
 
 	@Override
 	@Transactional
 	public List<Question> findAll() {
-		return questionRepository.findAll();
+		List<Question> questions = questionRepository.findAll();
+		for(Question question : questions){
+			Test test = testRepository.findByID(question.getIdTest());
+			question.setTest(test);
+		}
+		return questions;
 	}
 
 	@Override
@@ -61,7 +70,12 @@ public class AdvanceTutorServiceImpl implements AdvanceTutorService {
 	@Override
 	@Transactional
 	public List<Answer> findAllAnswer() {
-		return answerRepository.findAll();
+		List<Answer> answers = answerRepository.findAll();
+		for(Answer answer : answers){
+			Question question = questionRepository.findByID(answer.getIdQuestion());
+			answer.setQuestiton(question);
+		}
+		return answers;
 	}
 	
 	@Override
@@ -80,5 +94,17 @@ public class AdvanceTutorServiceImpl implements AdvanceTutorService {
 	@Transactional(readOnly=false)
 	public int update(AnswerForm form) {
 		return answerRepository.update(form);
+	}
+	
+	@Override
+	@Transactional
+	public List<Test> findAllListTest() {
+		return testRepository.findAll();
+	}
+	
+	@Override
+	@Transactional
+	public List<Question> findAllListQuestion() {
+		return questionRepository.findAll();
 	}
 }

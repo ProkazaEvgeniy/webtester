@@ -31,12 +31,13 @@
 					</div>
 
 					<div class="form-group">
-						<label for="exampleInputRole">Role</label> <select name="role"
+						<label for="exampleInputRole">Role</label> 
+						<select name="role"
 							class="form-control">
-							<option value="1">Admin</option>
-							<option value="2">Advance tutor</option>
-							<option value="3">Tutor</option>
-							<option value="4">Student</option>
+							<c:forEach var="role" items="${roleList}">
+								<option value="${role.id}">${role.name}</option>
+							</c:forEach>
+
 						</select>
 					</div>
 
@@ -49,16 +50,6 @@
 						<button type="submit" class="btn btn-default">Submit</button>
 						<a href="/regAccount" class="btn btn-primary">Registration</a>
 					</div>
-
-<!--  
-					<div class="col-xs-4 col-sm-2">
-						<a href="#" class="btn btn-default"><span class="hidden-xs">Facebook</span>
-						</a> <a href="#" class="btn btn-default"><span class="hidden-xs">Twitter</span>
-						</a> <a href="#" class="btn btn-default"><span class="hidden-xs">Google+</span>
-						</a>
-					</div>
--->
-
 				</form>
 			</div>
 		</div>

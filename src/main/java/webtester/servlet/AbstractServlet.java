@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import webtester.service.AdminService;
 import webtester.service.AdvanceTutorService;
 import webtester.service.CommonServise;
+import webtester.service.StudentService;
 import webtester.service.TutorService;
 import webtester.service.impl.ServiceManager;
 
@@ -50,6 +51,10 @@ public abstract class AbstractServlet extends HttpServlet {
 	public AdvanceTutorService getAdvanceTutorService() {
 		return serviceManager.getAdvanceTutorService();
 	}
+	
+	public StudentService getStudentService(){
+		return serviceManager.getStudentService();
+	}
 
 	protected void forwardTopage(String page, HttpServletRequest req,
 			HttpServletResponse resp) throws ServletException, IOException {
@@ -76,8 +81,13 @@ public abstract class AbstractServlet extends HttpServlet {
 	}
 
 	private Object convert(Class<?> type, String value) {
-		if (value == null)
-			return null;
+		if (value == null){
+			if(type == Boolean.class){
+				return false;
+			} else {
+				return null;
+			}
+		}
 		else if (type == String.class)
 			return value;
 		else if (type == Integer.TYPE)

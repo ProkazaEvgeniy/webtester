@@ -19,6 +19,10 @@ public interface AnswerRepository {
 	@ReturnType(entityClass = Answer.class)
 	List<Answer> findAll();
 	
+	@Select(sql="select answer.name from answer where answer.id_question=?")
+	@ReturnType(entityClass = Answer.class)
+	List<Answer> findAllByIdQuestion(Long idQuestion);
+	
 	@Insert(sql="insert into answer values(nextval('answer_seq'),?,?,?)")
 	Answer save(Answer answer);
 	

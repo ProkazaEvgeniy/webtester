@@ -15,7 +15,7 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>Id Test</th>
+					<th>Test Name</th>
 					<th>Question Name</th>
 					<th>Action</th>
 				</tr>
@@ -30,7 +30,7 @@
 				<c:forEach var="question" items="${list }">
 					<tr>
 						<td>${question.id}</td>
-						<td>${question.idTest}</td>
+						<td><c:out value="${question.test.name}"></c:out></td>
 						<td>${question.name}</td>
 						<td>
 							<div class="btn-group" >

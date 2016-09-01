@@ -13,6 +13,7 @@ public class Question implements Serializable {
 	private Long idTest;
 	@Column("name")
 	private String name;
+	private transient Test test;
 
 	public Question() {
 		super();
@@ -53,4 +54,14 @@ public class Question implements Serializable {
 		return "Question [id=" + id + ", idTest=" + idTest + ", name=" + name
 				+ "]";
 	}
+
+	public Test getTest() {
+		return test;
+	}
+
+	public void setTest(Test test) {
+		this.test = test;
+	}
+	
+	
 }

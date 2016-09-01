@@ -25,8 +25,7 @@
 							name="name" type="text" class="form-control" value="${answer.name}" placeholder="Name" id="exampleInputDescription">
 					</div>
 					<div class="checkbox">
-						<label> <input type="checkbox" name="correct"
-							value="${answer.correct}"> Correct (default false)
+						<label> <input type="checkbox" name="correct" value="${answer.correct}"> Correct (default false)
 						</label>
 					</div>
 					

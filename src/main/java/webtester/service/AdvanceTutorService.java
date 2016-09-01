@@ -6,6 +6,7 @@ import webtester.form.AnswerForm;
 import webtester.form.QuestionForm;
 import webtester.model.Answer;
 import webtester.model.Question;
+import webtester.model.Test;
 
 public interface AdvanceTutorService {
 
@@ -28,5 +29,9 @@ public interface AdvanceTutorService {
 	int deleteAnswer(long id);
 	
 	int update(AnswerForm form);
+	
+	List<Test> findAllListTest();
+	
+	List<Question> findAllListQuestion();
 	
 }

@@ -25,23 +25,17 @@
 						<h2>Web Tester system</h2>
 					</span>
 				</div>
-					<a href="/logout" class="btn btn-primary">Logout</a>
-				<div class="text">
-				</div>
+				<a href="/logout" class="btn btn-primary">Logout</a>
 			</div>
 		</nav>
 	</header>
-
 	<div class="container test">
-
 		<jsp:include page="${currentPage}"></jsp:include>
-
 	</div>
 	<webtester:footer />
 	<!--  
 	-->
 	<script type="text/javascript" src="/static/js/jquery-3.1.0.min.js"></script>
 	<script type="text/javascript" src="/static/js/app.js"></script>
-
 </body>
 </html>

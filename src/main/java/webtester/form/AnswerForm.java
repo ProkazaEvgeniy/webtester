@@ -4,7 +4,7 @@ public class AnswerForm {
 
 	private Long idQuestion;
 	private String name;
-	private Boolean correct;
+	private Boolean correct = Boolean.FALSE;
 	private Long id;
 
 	public AnswerForm() {
@@ -36,10 +36,7 @@ public class AnswerForm {
 	}
 
 	public Boolean getCorrect() {
-		if (correct != null) {
-			return correct != null && correct.booleanValue();
-		} else
-			return false;
+		return correct;
 	}
 
 	public void setCorrect(Boolean correct) {

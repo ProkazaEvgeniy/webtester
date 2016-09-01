@@ -12,7 +12,7 @@ import webtester.model.Question;
 import webtester.servlet.AbstractServlet;
 
 @WebServlet(urlPatterns = "/advance/home")
-public class HomeAdvanceTutorServlet extends AbstractServlet {
+public class HomeQuestionAdvanceTutorServlet extends AbstractServlet {
 
 	private static final long serialVersionUID = 8077249555811102437L;
 
@@ -20,6 +20,7 @@ public class HomeAdvanceTutorServlet extends AbstractServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<Question> list = getAdvanceTutorService().findAll();
 		req.setAttribute("list", list);
+		
 		forwardTopage("advance/home.jsp", req, resp);
 	}
 }

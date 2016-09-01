@@ -15,6 +15,7 @@ public class Answer implements Serializable {
 	private String name;
 	@Column("correct")
 	private Boolean correct;
+	private transient Question question;
 
 	public Answer() {
 		super();
@@ -64,5 +65,15 @@ public class Answer implements Serializable {
 		return "Answer [id=" + id + ", idQuestion=" + idQuestion + ", name="
 				+ name + ", correct=" + correct + "]";
 	}
+
+	public Question getQuestion() {
+		return question;
+	}
+
+	public void setQuestiton(Question question) {
+		this.question = question;
+	}
+	
+	
 	
 }

@@ -20,7 +20,7 @@ public interface TestRepository {
 	List<Test> findAll();
 
 	@Select(sql = "select * from test where id=?")
-	Test findByEdit(Long id);
+	Test findByID(Long id);
 	
 	@Delete(sql = "delete from test where id=?")
 	int deleteTest(long id);

@@ -8,19 +8,23 @@ import webtester.exception.ValidationException;
 import webtester.form.LoginForm;
 import webtester.model.Account;
 import webtester.model.AccountRole;
+import webtester.model.Role;
 import webtester.repository.AccountRepository;
 import webtester.repository.AccountRoleRepository;
+import webtester.repository.RoleRepository;
 import webtester.service.CommonServise;
 
 class CommonServiseImpl implements CommonServise {
 
 	private final AccountRepository accountRepositry;
 	private final AccountRoleRepository accountRoleRepository;
+	private final RoleRepository roleRepository;
 
-	CommonServiseImpl(AccountRepository accountRepositry, AccountRoleRepository accountRoleRepository) {
+	CommonServiseImpl(AccountRepository accountRepositry, AccountRoleRepository accountRoleRepository,RoleRepository roleRepository) {
 		super();
 		this.accountRepositry = accountRepositry;
 		this.accountRoleRepository = accountRoleRepository;
+		this.roleRepository = roleRepository;
 	}
 
 	@Transactional
@@ -60,4 +64,12 @@ class CommonServiseImpl implements CommonServise {
 	public String generateRememberMeToken(Account account) {
 		return UUID.randomUUID().toString();
 	}
+	
+	@Override
+	@Transactional
+	public List<Role> findAll() {
+		return roleRepository.findAll();
+	}
+	
+	
 }

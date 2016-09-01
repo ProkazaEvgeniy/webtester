@@ -5,8 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 
-
-<div>student</div>
+<div>You pass Test</div>
 
 
 <div class="row">
@@ -15,26 +14,27 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>Test Name</th>
-					<th>Description</th>
+					<th>Question Name</th>
+					<th>Answer Variant</th>
 					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:if test="${fn:length(list) == 0 }">
+				<c:if test="${fn:length(test) == 0 }">
 					<tr>
-						<td colspan="5">Empty list</td>
+						<td colspan="5">Empty test</td>
 					</tr>
 				</c:if>
 
-				<c:forEach var="test" items="${list }" varStatus="status">
+				<c:forEach var="answer" items="${test}" varStatus="status">
 					<tr>
 						<td>${status.index+1}</td>
-						<td>${test.name}</td>
-						<td>${test.description}</td>
+						<td><c:forEach var="q" items="${test.question}">${q.name}</c:forEach></td>
+						<td>a</td>
 						<td>
-							<div class="btn-group">
-								<a href="/student/passTest?id=${test.id}" type="button" class="btn btn-primary">Pass the Test</a> 
+							<div class="btn-group" >
+								<a href="/advance/editAnswer?id=#" type="button" class="btn btn-primary">Edit</a> 
+								<a href="/advance/delAnswer?id=#" type="button" class="btn btn-danger">Delete</a> 
 							</div>
 						</td>
 					</tr>

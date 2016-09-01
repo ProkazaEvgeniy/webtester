@@ -16,6 +16,7 @@ import webtester.repository.TestRepository;
 import webtester.service.AdminService;
 import webtester.service.AdvanceTutorService;
 import webtester.service.CommonServise;
+import webtester.service.StudentService;
 import webtester.service.TutorService;
 
 public final class ServiceManager {
@@ -42,6 +43,7 @@ public final class ServiceManager {
 	private final BasicDataSource dataSource;
 	private final TutorService tutorService;
 	private final AdvanceTutorService advanceTutorService;
+	private final StudentService studentService;
 
 	public CommonServise getCommonServise() {
 		return commonServise;
@@ -58,6 +60,10 @@ public final class ServiceManager {
 	public AdvanceTutorService getAdvanceTutorService(){
 		return advanceTutorService;
 	}
+	
+	public StudentService getStudentService(){
+		return studentService;
+	}
 
 	private ServiceManager() {
 		dataSource = buildDataSource();
@@ -69,11 +75,12 @@ public final class ServiceManager {
 		answerRepository = RepositoryFactory.createRepository(AnswerRepository.class);
 		
 		commonServise  = (CommonServise) ServiceFactory.createService(dataSource, 
-				new CommonServiseImpl(accountRepository, accountRoleRepository));
+				new CommonServiseImpl(accountRepository, accountRoleRepository,roleReposotory));
 		adminService =  (AdminService) ServiceFactory.createService(dataSource,
 				new AdminServiceImpl(accountRepository, roleReposotory, accountRoleRepository));
 		tutorService = (TutorService) ServiceFactory.createService(dataSource, new TutorServiceImpl(testRepository, accountRepository));
-		advanceTutorService = (AdvanceTutorService) ServiceFactory.createService(dataSource, new AdvanceTutorServiceImpl(questionRepository,answerRepository));
+		advanceTutorService = (AdvanceTutorService) ServiceFactory.createService(dataSource, new AdvanceTutorServiceImpl(questionRepository,answerRepository,testRepository));
+		studentService = (StudentService) ServiceFactory.createService(dataSource, new StudentServiceImpl(testRepository,questionRepository,answerRepository));
 	}
 
 	public void shutdown() {

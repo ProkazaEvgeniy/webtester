@@ -1,6 +1,7 @@
 package webtester.servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +13,7 @@ import webtester.Constatns;
 import webtester.exception.ValidationException;
 import webtester.form.LoginForm;
 import webtester.model.Account;
+import webtester.model.Role;
 
 @WebServlet(urlPatterns = "/login")
 public class LoginServlet extends AbstractServlet {
@@ -22,6 +24,8 @@ public class LoginServlet extends AbstractServlet {
 		if (req.getSession().getAttribute(Constatns.CURRENT_ACCOUNT) != null) {
 			resp.sendRedirect("/admin/home");
 		} else {
+			List<Role> roleList = getCommonService().findAll();
+			req.setAttribute("roleList", roleList);
 			forwardTopage("login.jsp", req, resp);
 		}
 	}

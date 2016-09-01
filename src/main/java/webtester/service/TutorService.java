@@ -11,7 +11,7 @@ public interface TutorService {
 	
 	List<Test> findAll();
 	
-	Test findByEdit(Long id);
+	Test findByID(Long id);
 	
 	int deleteTest(long id);
 	

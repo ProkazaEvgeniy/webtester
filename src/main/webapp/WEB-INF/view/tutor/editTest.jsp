@@ -14,7 +14,7 @@
 					<div class="form-group">
 						<label for="exampleInputName">Id</label> <input
 							name="id" type="text" class="form-control"
-							value="${test.id}" id="exampleInputDescription">
+							value="${test.id}">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputName">Test name</label> <input
@@ -35,7 +35,6 @@
 					<div class="text-center">
 						<button type="submit" class="btn btn-default">Edit
 							Test</button>
-						<a href="/advance/home" class="btn btn-default">Show questions</a>
 						<a href="/tutor/home" class="btn btn-warning">Cancel</a>
 					</div>
 				</form>
