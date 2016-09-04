@@ -12,8 +12,7 @@
 				<form action="/admin/establishRoleToBD" method="get">
 					<div class="form-group">
 						<div class="form-group">
-							<label for="exampleInputLogin">Id</label> <input name="id"
-								class="form-control" id="exampleInputLogin"
+							<input name="id" type="hidden" class="form-control" id="exampleInputLogin"
 								value="${account.id}" placeholder="id">
 						</div>
 
@@ -27,6 +26,7 @@
 					</div>
 					<div class="text-center">
 						<button type="submit" class="btn btn-default">Establish role</button>
+						<a href="/admin/home" class="btn btn-warning">Cancel</a>
 					</div>
 				</form>
 			</div>

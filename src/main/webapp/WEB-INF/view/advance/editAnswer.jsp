@@ -11,14 +11,17 @@
 				<!-- 
 				 -->
 				<form action="/advance/editAnswerToBD" method="get">
-					<div class="form-group">
-						<label for="exampleInputName">Id</label> <input
-							name="id" type="text" class="form-control"
+						<input name="id" type="hidden" class="form-control"
 							value="${answer.id}" id="exampleInputDescription">
-					</div>
 					<div class="form-group">
-						<label for="exampleInputName">Id Question</label> <input
-							name="idQuestion" type="text" class="form-control" value="${answer.idQuestion}" placeholder="Id Question" id="exampleInputDescription">
+						<label for="exampleInputRole">Question Name</label> 
+						<select name="idQuestion"
+							class="form-control">
+							<c:forEach var="question" items="${listQuestion}">
+								<option value="${question.id}">${question.name}</option>
+							</c:forEach>
+
+						</select>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputDescription">Name Answer</label> <input

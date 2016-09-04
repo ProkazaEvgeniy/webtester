@@ -1,6 +1,7 @@
 package webtester.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import webtester.annotation.Column;
 
@@ -14,6 +15,7 @@ public class Question implements Serializable {
 	@Column("name")
 	private String name;
 	private transient Test test;
+	private transient List<Answer> answer;
 
 	public Question() {
 		super();
@@ -63,5 +65,12 @@ public class Question implements Serializable {
 		this.test = test;
 	}
 	
+	public List<Answer> getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(List<Answer> answer) {
+		this.answer = answer;
+	}
 	
 }

@@ -20,25 +20,21 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:if test="${fn:length(test) == 0 }">
+			
 					<tr>
-						<td colspan="5">Empty test</td>
-					</tr>
-				</c:if>
-
-				<c:forEach var="answer" items="${test}" varStatus="status">
-					<tr>
-						<td>${status.index+1}</td>
+						<td>1</td>
 						<td><c:forEach var="q" items="${test.question}">${q.name}</c:forEach></td>
-						<td><c:forEach var="a" items="${test.answer}">${a.name}</c:forEach></td>
-						<td>
-							<div class="btn-group" >
-								<a href="/advance/editAnswer?id=#" type="button" class="btn btn-primary">Edit</a> 
-								<a href="/advance/delAnswer?id=#" type="button" class="btn btn-danger">Delete</a> 
-							</div>
+						<td><c:forEach var="a" items="${test.answer}">${a.name}<br>
+								
+									<div class="btn-group">
+										<a href="/student/optionAnswer?id=${a.id}" type="button" class="btn btn-primary">Option</a>
+									</div><br>
+								
+							</c:forEach>
 						</td>
+						
 					</tr>
-				</c:forEach>
+			
 			</tbody>
 		</table>
 	</div>

@@ -11,11 +11,9 @@
 				<!-- 
 				 -->
 				<form action="/tutor/editTestToBD" method="get">
-					<div class="form-group">
-						<label for="exampleInputName">Id</label> <input
-							name="id" type="text" class="form-control"
+					<input name="id" type="hidden" class="form-control"
 							value="${test.id}">
-					</div>
+				
 					<div class="form-group">
 						<label for="exampleInputName">Test name</label> <input
 							name="name" type="text" class="form-control"

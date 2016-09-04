@@ -20,7 +20,7 @@ public class PassTestStudentServlet extends AbstractServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		long id = Long.parseLong(req.getParameter("id"));
-		List<Test> test = getStudentService().findAllforPassTest(id);
+		Test test = getStudentService().findAllforPassTest(id);
 		req.setAttribute("test", test);
 		forwardTopage("student/passTest.jsp", req, resp);
 	}

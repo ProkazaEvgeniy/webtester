@@ -46,6 +46,7 @@
 		<div class="text-center">
 			<a href="/advance/addQuestion" class="btn btn-primary">Add Question</a>
 			<a href="/advance/home-answer" class="btn btn-default">Show Answer</a>
+			<a href="/tutor/home" class="btn btn-default">Show Test</a>
 		</div>
 	</div>
 </div>

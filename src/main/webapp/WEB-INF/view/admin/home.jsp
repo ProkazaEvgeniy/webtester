@@ -13,7 +13,7 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th>#</th>
+					<th>ID</th>
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Email</th>
@@ -45,7 +45,7 @@
 								<a href="/admin/editAccount?id=${account.id}" type="button" class="btn btn-primary">Edit Account</a> 
 								<a href="/admin/del?id=${account.id}" type="button" class="btn btn-danger">Delete Account</a> 
 								<a href="/admin/establishRole?id=${account.id}" type="button" class="btn btn-default">Establish Role</a>
-								<a href="/admin/deleteRole?id=${account.id}" type="button" class="btn btn-default">Delete Role</a> 
+								<a href="/admin/deleteRole?id=${account.id}" type="button" class="btn btn-warning">Delete Role</a> 
 								<a onclick="hello()" type="button" class="btn btn-success">Enable</a>
 							</div>
 						</td>

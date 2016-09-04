@@ -36,7 +36,7 @@ class DefaultRowResultSetHandler<T> implements ResultSetHandler<T> {
 			}
 			return entity;
 		} catch (Exception e) {
-			throw new SQLException();
+			throw new SQLException("qqqqqqqqqqqqqqqqqq", e);
 		}
 	}
 }

@@ -25,6 +25,8 @@ public class EditAnswerServlet extends AbstractServlet {
 			long idAnswer = Long.parseLong(id);
 			Answer answer = getAdvanceTutorService().findByEditAnswer(idAnswer);
 			req.setAttribute("answer", answer);
+			List<Question> listQuestion = getAdvanceTutorService().findAllListQuestion();
+			req.setAttribute("listQuestion", listQuestion);
 			forwardTopage("advance/editAnswer.jsp", req, resp);
 		} else {
 			List<Question> listQuestion = getAdvanceTutorService().findAllListQuestion();

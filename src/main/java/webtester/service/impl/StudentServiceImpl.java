@@ -17,9 +17,9 @@ public class StudentServiceImpl implements StudentService {
 	private final QuestionRepository questionRepository;
 	private final AnswerRepository answerRepository;
 
-	StudentServiceImpl(	TestRepository testRepository,
-						QuestionRepository questionRepository,
-						AnswerRepository answerRepository) {
+	StudentServiceImpl(TestRepository testRepository,
+			QuestionRepository questionRepository,
+			AnswerRepository answerRepository) {
 		super();
 		this.testRepository = testRepository;
 		this.questionRepository = questionRepository;
@@ -31,21 +31,24 @@ public class StudentServiceImpl implements StudentService {
 	public List<Test> findAll() {
 		return testRepository.findAll();
 	}
-	
+
 	@Override
 	@Transactional
-	public List<Test> findAllforPassTest(Long id) {
-		List<Test> tests = testRepository.findAll();
-		List<Question> questions = questionRepository.findAll();
-		for(Test test : tests){
-			List<Question> question = questionRepository.findAllByIdTest(id);
-			test.setQuestion(question);
-			for(Question question1 : questions){
-				List<Answer> answer = answerRepository.findAllByIdQuestion(question1.getId());
-				test.setAnswer(answer);
-			}
+	public Test findAllforPassTest(Long id) {
+		Test test = testRepository.findByID(id);
+		List<Question> questions = questionRepository.findAllByIdTest(test.getId());
+		test.setQuestion(questions);
+		for(Question question : questions){
+			List<Answer> answer = answerRepository.findAllByIdQuestion(question.getId());
+			test.setAnswer(answer);
 		}
-		return tests;
+		return test;
 	}
-	
+
+	@Override
+	@Transactional
+	public List<Test> findAllTestForStudent(Long id) {
+		return testRepository.findAllTestForStudent(id);
+	}
+
 }

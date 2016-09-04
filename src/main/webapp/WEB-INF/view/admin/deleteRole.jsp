@@ -7,13 +7,12 @@
 <div class="row">
 	<div class="col-md-4 col-xs-12 col-sm-10">
 		<div class="panel panel-default">
-			<div class="panel-heading">Establish role for id = ${account.id}</div>
+			<div class="panel-heading">Delete role for id = ${account.id}</div>
 			<div class="panel-body">
 				<form action="/admin/deleteRoleToBD" method="get">
 					<div class="form-group">
 						<div class="form-group">
-							<label for="exampleInputLogin">Id</label> <input name="id"
-								class="form-control" id="exampleInputLogin"
+							<input name="id" type="hidden" class="form-control" id="exampleInputLogin"
 								value="${account.id}" placeholder="id">
 						</div>
 
@@ -27,6 +26,7 @@
 					</div>
 					<div class="text-center">
 						<button type="submit" class="btn btn-default">Delete role</button>
+						<a href="/admin/home" class="btn btn-warning">Cancel</a>
 					</div>
 				</form>
 			</div>

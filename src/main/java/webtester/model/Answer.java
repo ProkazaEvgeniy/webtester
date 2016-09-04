@@ -1,6 +1,7 @@
 package webtester.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import webtester.annotation.Column;
 
@@ -16,6 +17,7 @@ public class Answer implements Serializable {
 	@Column("correct")
 	private Boolean correct;
 	private transient Question question;
+	private transient List<Question> questionList;
 
 	public Answer() {
 		super();
@@ -73,7 +75,13 @@ public class Answer implements Serializable {
 	public void setQuestiton(Question question) {
 		this.question = question;
 	}
-	
-	
+
+	public List<Question> getQuestionList() {
+		return questionList;
+	}
+
+	public void setQuestionList(List<Question> questionList) {
+		this.questionList = questionList;
+	}
 	
 }

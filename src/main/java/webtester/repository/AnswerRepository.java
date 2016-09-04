@@ -19,7 +19,7 @@ public interface AnswerRepository {
 	@ReturnType(entityClass = Answer.class)
 	List<Answer> findAll();
 	
-	@Select(sql="select answer.name from answer where answer.id_question=?")
+	@Select(sql="select answer.* from answer where answer.id_question=?")
 	@ReturnType(entityClass = Answer.class)
 	List<Answer> findAllByIdQuestion(Long idQuestion);
 	

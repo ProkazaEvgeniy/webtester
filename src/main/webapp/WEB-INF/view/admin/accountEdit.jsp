@@ -15,8 +15,7 @@
 					<!-- 
 				 -->
 				 <div class="form-group">
-						<label for="exampleInputLogin">Id</label> <input name="id"
-							class="form-control" id="exampleInputLogin"
+						<input name="id" type="hidden" class="form-control" id="exampleInputLogin"
 							value="${account.id}" placeholder="id">
 					</div>
 					<div class="form-group">

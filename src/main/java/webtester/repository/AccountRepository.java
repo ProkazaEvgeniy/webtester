@@ -21,7 +21,7 @@ public interface AccountRepository {
 	@Update(sql = "UPDATE account SET login=?, password=?, first_name=?, last_name=?, second_name=?, email=? where id=?")
 	int update(AccountForm form);
 
-	@Select(sql = "select * from account")
+	@Select(sql = "select * from account order by id")
 	@ReturnType(entityClass = Account.class)
 	List<Account> findAll();
 	

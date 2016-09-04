@@ -12,14 +12,18 @@
 				 -->
 				<form action="/advance/editQuestionToBD" method="get">
 					<div class="form-group">
-						<label for="exampleInputName">Id</label> <input
-							name="id" type="text" class="form-control"
+						<input	name="id" type="hidden" class="form-control"
 							value="${question.id}" id="exampleInputDescription">
 					</div>
 					<div class="form-group">
-						<label for="exampleInputName">Id Test</label> <input
-							name="idTest" type="text" class="form-control"
-							value="${question.idTest}" id="exampleInputDescription">
+						<label for="exampleInputRole">Test Name</label> 
+						<select name="idTest"
+							class="form-control">
+							<c:forEach var="test" items="${listTest}">
+								<option value="${test.id}">${test.name}</option>
+							</c:forEach>
+
+						</select>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputDescription">Name</label> <input
