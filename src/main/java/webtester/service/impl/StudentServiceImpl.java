@@ -36,14 +36,47 @@ public class StudentServiceImpl implements StudentService {
 	@Transactional
 	public Test findAllforPassTest(Long id) {
 		Test test = testRepository.findByID(id);
-		List<Question> questions = questionRepository.findAllByIdTest(test.getId());
-		test.setQuestion(questions);
-		for(Question question : questions){
-			List<Answer> answer = answerRepository.findAllByIdQuestion(question.getId());
-			test.setAnswer(answer);
-		}
+		Question question = questionRepository.findQuestionByIdTest(test.getId());
+		test.setQuestion(question);
+		List<Answer> answer = answerRepository.findAllByIdQuestion(question.getId());
+		test.setAnswer(answer);
 		return test;
 	}
+	
+	@Override
+	@Transactional
+	public Question findQuestionByID(Long id) {
+		Question question = questionRepository.findQuestionByID(id);
+		question.setQuestion(question);
+		List<Answer> answer = answerRepository.findAllByIdQuestion(question.getId());
+		question.setAnswer(answer);
+		return question;
+	}
+
+	/*
+	 * @Override
+	 * 
+	 * @Transactional public Test findAllforPassTest(Long id) { Test test =
+	 * testRepository.findByID(id); List<Question> questions =
+	 * questionRepository.findAllByIdTest(test.getId());
+	 * test.setQuestion(questions); for(Question question : questions){
+	 * List<Answer> answer =
+	 * answerRepository.findAllByIdQuestion(question.getId());
+	 * test.setAnswer(answer); } return test; }
+	 */
+
+	/*
+	 * @Override
+	 * 
+	 * @Transactional public List<Test> findAllforPassTest(Long id) { List<Test>
+	 * tests = testRepository.findAllTestForStudent(id); for(Test test : tests){
+	 * List<Question> questions =
+	 * questionRepository.findAllByIdTest(test.getId());
+	 * test.setQuestion(questions); for(Question question : questions){
+	 * List<Answer> answer =
+	 * answerRepository.findAllByIdQuestion(question.getId());
+	 * test.setAnswer(answer); } } return tests; }
+	 */
 
 	@Override
 	@Transactional

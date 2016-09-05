@@ -23,6 +23,12 @@ public interface QuestionRepository {
 	@ReturnType(entityClass = Question.class)
 	List<Question> findAllByIdTest(Long idTest);
 	
+	@Select(sql="select question.* from question where question.id_test=?")
+	Question findQuestionByIdTest(Long idTest);
+	
+	@Select(sql="select question.* from question where question.id=?")
+	Question findQuestionByID(Long id);
+	
 	@Insert(sql="insert into question values(nextval('question_seq'),?,?)")
 	Question save(Question question);
 	

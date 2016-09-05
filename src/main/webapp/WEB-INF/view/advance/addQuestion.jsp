@@ -8,21 +8,15 @@
 		<div class="panel panel-default">
 			<div class="panel-heading">Add Question</div>
 			<div class="panel-body">
-				<!-- 
-				 -->
 				<form action="/advance/addQuestionToBD" method="get">
-					
 					<div class="form-group">
 						<label for="exampleInputRole">Test Name</label> 
-						<select name="idTest"
-							class="form-control">
+						<select name="idTest" class="form-control">
 							<c:forEach var="test" items="${listTest}">
 								<option value="${test.id}">${test.name}</option>
 							</c:forEach>
-
 						</select>
 					</div>
-
 					<div class="form-group">
 						<label for="exampleInputDescription">Name Question</label> <input
 							name="name" type="text" class="form-control" placeholder="Name" id="exampleInputDescription">

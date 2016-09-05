@@ -16,6 +16,7 @@ public class Question implements Serializable {
 	private String name;
 	private transient Test test;
 	private transient List<Answer> answer;
+	private transient Question question;
 
 	public Question() {
 		super();
@@ -72,5 +73,14 @@ public class Question implements Serializable {
 	public void setAnswer(List<Answer> answer) {
 		this.answer = answer;
 	}
+
+	public Question getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(Question question) {
+		this.question = question;
+	}
+	
 	
 }

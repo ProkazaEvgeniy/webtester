@@ -6,7 +6,7 @@
 <div class="row">
 	<div class="col-md-12">
 		<form action="/student/nextQuestion" method="get">
-		<input type="hidden" name="idQuestion" value="12">
+		<input type="hidden" name="idQuestion" value="13">
 			<table class="table table-hover">
 				<thead>
 					<tr>

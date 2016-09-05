@@ -42,11 +42,11 @@
 						<c:if test="${roleAccount.idRole == 4}">Student</c:if><br></c:forEach> </td>
 						<td>
 							<div class="btn-group">
-								<a href="/admin/editAccount?id=${account.id}" type="button" class="btn btn-primary">Edit Account</a> 
-								<a href="/admin/del?id=${account.id}" type="button" class="btn btn-danger">Delete Account</a> 
-								<a href="/admin/establishRole?id=${account.id}" type="button" class="btn btn-default">Establish Role</a>
-								<a href="/admin/deleteRole?id=${account.id}" type="button" class="btn btn-warning">Delete Role</a> 
-								<a onclick="hello()" type="button" class="btn btn-success">Enable</a>
+								<a href="/admin/editAccount?id=${account.id}" type="button" class="btn btn-primary"><div class="glyphicon glyphicon-pencil"></div> Edit Account</a> 
+								<a href="/admin/del?id=${account.id}" type="button" class="btn btn-danger"><div class="glyphicon glyphicon-remove"></div> Delete Account</a> 
+								<a href="/admin/establishRole?id=${account.id}" type="button" class="btn btn-default"><div class="glyphicon glyphicon-eye-open"></div> Establish Role</a>
+								<a href="/admin/deleteRole?id=${account.id}" type="button" class="btn btn-warning"><div class="glyphicon glyphicon-eye-close"></div> Delete Role</a> 
+								<a onclick="hello()" type="button" class="btn btn-success"><div class="glyphicon glyphicon-expand"></div> <div class="glyphicon glyphicon-unchecked"></div> Enable</a>
 							</div>
 						</td>
 					</tr>
@@ -54,7 +54,7 @@
 			</tbody>
 		</table>
 		<div class="text-center">
-			<a href="/admin/addAccount" class="btn btn-primary">Add account</a>
+			<a href="/admin/addAccount" class="btn btn-primary"><div class="glyphicon glyphicon-plus"></div> Add account</a>
 		</div>
 
 	</div>

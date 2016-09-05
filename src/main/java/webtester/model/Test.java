@@ -18,7 +18,8 @@ public class Test implements Serializable {
 	@Column("duration_per_question")
 	private Integer durationPerQuestion;
 	private transient Account account;
-	private transient List<Question> question;
+	private transient List<Question> questions;
+	private transient Question question;
 	private transient List<Answer> answer;
 	@Column("id")
 	private Long id;
@@ -91,12 +92,12 @@ public class Test implements Serializable {
 		this.account = account;
 	}
 
-	public List<Question> getQuestion() {
-		return question;
+	public List<Question> getQuestions() {
+		return questions;
 	}
 
-	public void setQuestion(List<Question> question) {
-		this.question = question;
+	public void setQuestions(List<Question> questions) {
+		this.questions = questions;
 	}
 
 	public List<Answer> getAnswer() {
@@ -107,6 +108,12 @@ public class Test implements Serializable {
 		this.answer = answer;
 	}
 
-	
+	public Question getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(Question question) {
+		this.question = question;
+	}
 	
 }

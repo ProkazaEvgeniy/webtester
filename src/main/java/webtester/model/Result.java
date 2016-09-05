@@ -15,7 +15,7 @@ public class Result implements Serializable {
 	@Column("id_account")
 	private Long idAccount;
 	@Column("percent")
-	private Object percent;
+	private Double percent;
 	@Column("created")
 	private Timestamp created;
 	@Column("test_name")
@@ -25,7 +25,7 @@ public class Result implements Serializable {
 		super();
 	}
 	
-	public Result(Long idTest, Long idAccount, Object percent, Timestamp created, String testName){
+	public Result(Long idTest, Long idAccount, Double percent, Timestamp created, String testName){
 		super();
 		this.idTest = idTest;
 		this.idAccount = idAccount;
@@ -58,11 +58,11 @@ public class Result implements Serializable {
 		this.idAccount = idAccount;
 	}
 
-	public Object getPercent() {
+	public Double getPercent() {
 		return percent;
 	}
 
-	public void setPercent(Object percent) {
+	public void setPercent(Double percent) {
 		this.percent = percent;
 	}
 

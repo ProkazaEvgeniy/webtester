@@ -25,7 +25,7 @@
 						<h2>Web Tester system</h2>
 					</span>
 				</div>
-				<a href="/logout" class="btn btn-primary">Logout</a>
+				<a href="/logout" class="btn btn-primary"><div class="glyphicon glyphicon-off"></div> Logout</a>
 			</div>
 		</nav>
 	</header>
