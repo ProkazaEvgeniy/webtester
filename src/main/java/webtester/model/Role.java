@@ -1,7 +1,5 @@
 package webtester.model;
 
-import java.sql.Timestamp;
-
 import webtester.annotation.Column;
 
 public class Role {

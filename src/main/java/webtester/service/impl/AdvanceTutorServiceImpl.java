@@ -70,7 +70,7 @@ public class AdvanceTutorServiceImpl implements AdvanceTutorService {
 	@Override
 	@Transactional
 	public List<Answer> findAllAnswer() {
-		List<Answer> answers = answerRepository.findAll();
+		List<Answer> answers = answerRepository.findAllAnswer();
 		for(Answer answer : answers){
 			Question question = questionRepository.findByID(answer.getIdQuestion());
 			answer.setQuestiton(question);

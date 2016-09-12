@@ -7,10 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import webtester.model.Test;
+import webtester.model.TestResult;
 import webtester.servlet.AbstractServlet;
 
-@WebServlet(urlPatterns={"/student/passTest"})
+@WebServlet(urlPatterns = { "/student/passTest" })
 public class PassTestStudentServlet extends AbstractServlet {
 
 	private static final long serialVersionUID = -7946598465564403447L;
@@ -19,9 +19,9 @@ public class PassTestStudentServlet extends AbstractServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		long id = Long.parseLong(req.getParameter("id"));
-//		List<Test> test = getStudentService().findAllforPassTest(id);
-		Test test = getStudentService().findAllforPassTest(id);
-		req.setAttribute("test", test);
-		forwardTopage("student/passTest.jsp", req, resp);
+		TestResult tr = new TestResult();
+		tr.setTest(getStudentService().findAllforPassTest(id));
+		req.getSession().setAttribute("TestResult", tr);
+		resp.sendRedirect("/student/nextQuestion?idTest=" + id + "&offset=0");
 	}
 }

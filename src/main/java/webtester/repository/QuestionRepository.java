@@ -23,13 +23,25 @@ public interface QuestionRepository {
 	@ReturnType(entityClass = Question.class)
 	List<Question> findAllByIdTest(Long idTest);
 	
+	@Select(sql="select count(*) from question where question.id_test=?")
+	int countQuestionsForTest(Long idTest);
+	
+	@Select(sql="select question.* from question where question.id_test=? order by id limit 1 offset ?")
+	Question findByIdTestAndOffset(Long idTest, Integer offset);
+	
 	@Select(sql="select question.* from question where question.id_test=?")
 	Question findQuestionByIdTest(Long idTest);
 	
 	@Select(sql="select question.* from question where question.id=?")
 	Question findQuestionByID(Long id);
 	
-	@Insert(sql="insert into question values(nextval('question_seq'),?,?)")
+	@Select(sql="select id from question where id=$id order by id desc limit 1")
+	Question findNextOrPreviousQuestion();
+	
+	@Select(sql="select ")
+	int quantityQuestion(Long idTest);
+	
+	@Insert(sql="insert into question values(nextval('question_seq'),?,?,?)")
 	Question save(Question question);
 	
 	@Delete(sql = "delete from question where id=?")

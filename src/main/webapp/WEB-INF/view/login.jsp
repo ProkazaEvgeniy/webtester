@@ -35,6 +35,9 @@
 					<div class="text-center">
 						<button type="submit" class="btn btn-default"><div class="glyphicon glyphicon-asterisk"></div> Submit</button>
 						<a href="/regAccount" class="btn btn-primary">Registration <div class="glyphicon glyphicon-user"></div></a>
+						<!-- 
+						<a href="/admin/reestablishPassword" class="btn btn-primary">Reestablish password </a>
+						-->
 					</div>
 				</form>
 			</div>

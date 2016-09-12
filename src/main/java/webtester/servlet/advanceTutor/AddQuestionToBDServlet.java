@@ -23,7 +23,8 @@ public class AddQuestionToBDServlet extends AbstractServlet {
 		QuestionForm form = createForm(QuestionForm.class, req);
 		Long idTest = form.getIdTest();
 		String name = form.getName();
-		Question question = getAdvanceTutorService().save(new Question(idTest, name));
+		String tName = form.gettName();
+		Question question = getAdvanceTutorService().save(new Question(idTest, name, tName));
 		System.out.println(question);
 		resp.sendRedirect("/advance/home");
 	}

@@ -19,7 +19,11 @@
 					</div>
 					<div class="form-group">
 						<label for="exampleInputDescription">Name Question</label> <input
-							name="name" type="text" class="form-control" placeholder="Name" id="exampleInputDescription">
+							name="name" type="text" class="form-control" placeholder="Name Question" id="exampleInputDescription">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputDescription">True Answer</label> <input
+							name="tName" type="text" class="form-control" placeholder="True Answer" id="exampleInputDescription">
 					</div>
 					<div class="text-center">
 						<button type="submit" class="btn btn-default">Add Question</button>

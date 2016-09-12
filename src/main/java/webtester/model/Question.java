@@ -14,18 +14,20 @@ public class Question implements Serializable {
 	private Long idTest;
 	@Column("name")
 	private String name;
+	@Column("t_name")
+	private String tName;
 	private transient Test test;
 	private transient List<Answer> answer;
-	private transient Question question;
 
 	public Question() {
 		super();
 	}
 	
-	public Question(Long idTest, String name){
+	public Question(Long idTest, String name, String tName){
 		super();
 		this.idTest = idTest;
 		this.name = name;
+		this.tName = tName;
 	}
 
 	public Long getId() {
@@ -52,6 +54,15 @@ public class Question implements Serializable {
 		this.name = name;
 	}
 
+	
+	public String gettName() {
+		return tName;
+	}
+
+	public void settName(String tName) {
+		this.tName = tName;
+	}
+
 	@Override
 	public String toString() {
 		return "Question [id=" + id + ", idTest=" + idTest + ", name=" + name
@@ -72,14 +83,6 @@ public class Question implements Serializable {
 
 	public void setAnswer(List<Answer> answer) {
 		this.answer = answer;
-	}
-
-	public Question getQuestion() {
-		return question;
-	}
-
-	public void setQuestion(Question question) {
-		this.question = question;
 	}
 	
 	

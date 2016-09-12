@@ -10,12 +10,15 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Proxy;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.ResultSetHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import webtester.annotation.Delete;
 import webtester.annotation.Insert;
@@ -126,7 +129,7 @@ public class RepositoryFactory {
 				SecurityException, InstantiationException, InvocationTargetException {
 			Object[] insertArgs = getInsertArguments(args);
 			Class<?> returnType = args[0].getClass();
-			DefaultResultSetHandler h = build(returnType, false, insert.resultSetHandlerClass());
+			ResultSetHandler h = build(returnType, false, insert.resultSetHandlerClass());
 			Object entity = new QueryRunner().insert(c, insert.sql(), h, insertArgs);
 			return entity;
 		}
@@ -147,17 +150,29 @@ public class RepositoryFactory {
 				IllegalArgumentException, InvocationTargetException, SQLException {
 			Class<?> returnType = findResultType(method);
 			boolean isCollection = Collection.class.isAssignableFrom(method.getReturnType());
-			DefaultResultSetHandler h = build(returnType, isCollection, select.resultSetHandlerClass());
+			ResultSetHandler h = build(returnType, isCollection, select.resultSetHandlerClass());
 			return new QueryRunner().query(c, select.sql(), h, args);
 		}
 
-		private DefaultResultSetHandler build(Class<?> returnType, boolean isCollection,
+		private ResultSetHandler build(Class<?> returnType, boolean isCollection,
 				Class<? extends DefaultResultSetHandler> resultSetHandlerClass)
 				throws NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException,
 				IllegalArgumentException, InvocationTargetException {
-			Constructor<? extends DefaultResultSetHandler> constructor = resultSetHandlerClass
-					.getConstructor(Class.class, Boolean.TYPE);
-			return constructor.newInstance(returnType, isCollection);
+			if(returnType == Integer.TYPE) {
+				return new ResultSetHandler<Integer>() {
+
+					@Override
+					public Integer handle(ResultSet rs) throws SQLException {
+						rs.next();
+						return rs.getInt(1);
+					}
+				};
+			}
+			else {
+				Constructor<? extends DefaultResultSetHandler> constructor = resultSetHandlerClass
+						.getConstructor(Class.class, Boolean.TYPE);
+				return constructor.newInstance(returnType, isCollection);
+			}
 		}
 
 		private Class<?> findResultType(Method method) {

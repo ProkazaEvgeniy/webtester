@@ -69,9 +69,15 @@ public abstract class AbstractServlet extends HttpServlet {
 			Field[] fields = formClass.getDeclaredFields();
 			for (Field field : fields) {
 				field.setAccessible(true);
-				String value = req.getParameter(field.getName());
-				Object convertedValue = convert(field.getType(), value);
-				field.set(form, convertedValue);
+				if(field.getType().isArray()){
+					String[] value = req.getParameterValues(field.getName());
+					field.set(form, value);
+				}  else {
+					String value = req.getParameter(field.getName());
+					Object convertedValue = convert(field.getType(), value);
+					field.set(form, convertedValue);
+				}
+				
 			}
 			return form;
 		} catch (InstantiationException | IllegalAccessException

@@ -11,6 +11,7 @@ import webtester.repository.AccountRoleRepository;
 import webtester.repository.AnswerRepository;
 import webtester.repository.QuestionRepository;
 import webtester.repository.RepositoryFactory;
+import webtester.repository.ResultRepository;
 import webtester.repository.RoleRepository;
 import webtester.repository.TestRepository;
 import webtester.service.AdminService;
@@ -23,21 +24,24 @@ public final class ServiceManager {
 	private static final String SERVICE_MANADER = "SERVICE_MANADER";
 
 	public static ServiceManager getInstance(ServletContext context) {
-		ServiceManager instance = (ServiceManager) context.getAttribute(SERVICE_MANADER);
+		ServiceManager instance = (ServiceManager) context
+				.getAttribute(SERVICE_MANADER);
 		if (instance == null) {
 			instance = new ServiceManager();
 			context.setAttribute(SERVICE_MANADER, instance);
 		}
 		return instance;
 	}
-//Repository
+
+	// Repository
 	private final AccountRepository accountRepository;
 	private final AccountRoleRepository accountRoleRepository;
 	private final RoleRepository roleReposotory;
 	private final TestRepository testRepository;
 	private final QuestionRepository questionRepository;
 	private final AnswerRepository answerRepository;
-//Servise
+	private final ResultRepository resultRepository;
+	// Servise
 	private final CommonServise commonServise;
 	private final AdminService adminService;
 	private final BasicDataSource dataSource;
@@ -52,35 +56,51 @@ public final class ServiceManager {
 	public AdminService getAdminService() {
 		return adminService;
 	}
-	
-	public TutorService getTutorService(){
+
+	public TutorService getTutorService() {
 		return tutorService;
 	}
-	
-	public AdvanceTutorService getAdvanceTutorService(){
+
+	public AdvanceTutorService getAdvanceTutorService() {
 		return advanceTutorService;
 	}
-	
-	public StudentService getStudentService(){
+
+	public StudentService getStudentService() {
 		return studentService;
 	}
 
 	private ServiceManager() {
 		dataSource = buildDataSource();
-		accountRepository = RepositoryFactory.createRepository(AccountRepository.class);
-		accountRoleRepository = RepositoryFactory.createRepository(AccountRoleRepository.class);
-		roleReposotory = RepositoryFactory.createRepository(RoleRepository.class);
-		testRepository = RepositoryFactory.createRepository(TestRepository.class);
-		questionRepository = RepositoryFactory.createRepository(QuestionRepository.class);
-		answerRepository = RepositoryFactory.createRepository(AnswerRepository.class);
-		
-		commonServise  = (CommonServise) ServiceFactory.createService(dataSource, 
-				new CommonServiseImpl(accountRepository, accountRoleRepository,roleReposotory));
-		adminService =  (AdminService) ServiceFactory.createService(dataSource,
-				new AdminServiceImpl(accountRepository, roleReposotory, accountRoleRepository));
-		tutorService = (TutorService) ServiceFactory.createService(dataSource, new TutorServiceImpl(testRepository, accountRepository));
-		advanceTutorService = (AdvanceTutorService) ServiceFactory.createService(dataSource, new AdvanceTutorServiceImpl(questionRepository,answerRepository,testRepository));
-		studentService = (StudentService) ServiceFactory.createService(dataSource, new StudentServiceImpl(testRepository,questionRepository,answerRepository));
+		accountRepository = RepositoryFactory
+				.createRepository(AccountRepository.class);
+		accountRoleRepository = RepositoryFactory
+				.createRepository(AccountRoleRepository.class);
+		roleReposotory = RepositoryFactory
+				.createRepository(RoleRepository.class);
+		testRepository = RepositoryFactory
+				.createRepository(TestRepository.class);
+		questionRepository = RepositoryFactory
+				.createRepository(QuestionRepository.class);
+		answerRepository = RepositoryFactory
+				.createRepository(AnswerRepository.class);
+		resultRepository = RepositoryFactory
+				.createRepository(ResultRepository.class);
+
+		commonServise = (CommonServise) ServiceFactory.createService(
+				dataSource, new CommonServiseImpl(accountRepository,
+						accountRoleRepository, roleReposotory));
+		adminService = (AdminService) ServiceFactory.createService(dataSource,
+				new AdminServiceImpl(accountRepository, roleReposotory,
+						accountRoleRepository));
+		tutorService = (TutorService) ServiceFactory.createService(dataSource,
+				new TutorServiceImpl(testRepository, accountRepository));
+		advanceTutorService = (AdvanceTutorService) ServiceFactory
+				.createService(dataSource, new AdvanceTutorServiceImpl(
+						questionRepository, answerRepository, testRepository));
+		studentService = (StudentService) ServiceFactory
+				.createService(dataSource, new StudentServiceImpl(
+						testRepository, questionRepository, answerRepository,
+						resultRepository));
 	}
 
 	public void shutdown() {

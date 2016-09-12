@@ -5,8 +5,11 @@
 <div>You pass Test</div>
 <div class="row">
 	<div class="col-md-12">
-		<form action="/student/nextQuestion" method="get">
-		<input type="hidden" name="idQuestion" value="13">
+		<form action="/student/validate" method="get">
+		<input type="hidden" name="idTest" value="${question.idTest }">
+		<input type="hidden" name="offset" value="${offset+1 }">
+		<input type="hidden" name="idQuestion" value="${question.id }">
+		<input type="hidden" name="tName" value="${question.tName }">
 			<table class="table table-hover">
 				<thead>
 					<tr>
@@ -18,15 +21,14 @@
 				<tbody>
 					<tr>
 						<td>1</td>
-						<td><c:out value="${test.question.name }"></c:out></td>
-						<td><c:forEach var="a" items="${test.answer}">${a.name}<div class="checkbox"><label> <input type="checkbox" name="varAnswer" value="yes">Click here</label></div><br>
+						<td><c:out value="${question.name }"></c:out></td>
+						<td><c:forEach var="a" items="${question.answer}">${a.name}<div class="checkbox"><label> <input type="radio" name="name" value="${a.name }">Click here</label></div><br>
 							</c:forEach>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 			<div class="text-center">
-				<a href="/student/home" class="btn btn-primary"><div class="glyphicon glyphicon-chevron-left"></div> Back to Pass Test</a>
 				<button type="submit" class="btn btn-primary">Next Question <div class="glyphicon glyphicon-chevron-right"></div></button>
 			</div>
 		</form>

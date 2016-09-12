@@ -25,13 +25,13 @@ public class Result implements Serializable {
 		super();
 	}
 	
-	public Result(Long idTest, Long idAccount, Double percent, Timestamp created, String testName){
+	public Result(Long idTest, Long idAccount, Double percent, String testName){
 		super();
 		this.idTest = idTest;
 		this.idAccount = idAccount;
 		this.percent = percent;
-		this.created = created;
 		this.testName = testName;
+		this.created = new Timestamp(System.currentTimeMillis());
 	}
 
 	public Long getId() {
@@ -82,4 +82,12 @@ public class Result implements Serializable {
 		this.testName = testName;
 	}
 
+	@Override
+	public String toString() {
+		return "Result [id=" + id + ", idTest=" + idTest + ", idAccount="
+				+ idAccount + ", percent=" + percent + ", created=" + created
+				+ ", testName=" + testName + "]";
+	}
+
+	
 }

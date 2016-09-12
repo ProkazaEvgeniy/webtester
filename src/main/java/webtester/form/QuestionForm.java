@@ -5,6 +5,7 @@ public class QuestionForm {
 
 	private Long idTest;
 	private String name;
+	private String tName;
 	private Long id;
 	
 	public QuestionForm() {
@@ -33,6 +34,14 @@ public class QuestionForm {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String gettName() {
+		return tName;
+	}
+
+	public void settName(String tName) {
+		this.tName = tName;
 	}
 
 	

@@ -8,20 +8,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import webtester.form.NextQuestionForm;
-import webtester.model.Question;
+import webtester.model.QuestionAnswer;
+import webtester.model.TestResult;
 import webtester.servlet.AbstractServlet;
 
-@WebServlet(urlPatterns={"/student/nextQuestion"})
-public class PassNextTestStudentServlet extends AbstractServlet {
+@WebServlet(urlPatterns={"/student/validate"})
+public class ValidateServlet extends AbstractServlet {
 
-	private static final long serialVersionUID = 4266489853325515439L;
-
+	private static final long serialVersionUID = 3657270650468383751L;
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		NextQuestionForm form = createForm(NextQuestionForm.class, req);
-		Question test = getStudentService().findQuestionByID(form.getIdQuestion());
-		req.setAttribute("test", test);
-		forwardTopage("student/passNextTest.jsp", req, resp);
+		TestResult tr = (TestResult) req.getSession().getAttribute("TestResult");
+		tr.add(new QuestionAnswer(form.getIdQuestion(), form.getName()));
+		resp.sendRedirect("/student/nextQuestion?idTest="+form.getIdTest()+"&offset="+form.getOffset());
 	}
 }

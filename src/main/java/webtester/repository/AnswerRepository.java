@@ -17,11 +17,14 @@ public interface AnswerRepository {
 	
 	@Select(sql = "select * from answer")
 	@ReturnType(entityClass = Answer.class)
-	List<Answer> findAll();
+	List<Answer> findAllAnswer();
 	
 	@Select(sql="select answer.* from answer where answer.id_question=?")
 	@ReturnType(entityClass = Answer.class)
 	List<Answer> findAllByIdQuestion(Long idQuestion);
+	
+	@Select(sql="select answer.* from answer where answer.id_question=? and correct=true")
+	Answer findByIdQuestion(Long idQuestion);
 	
 	@Insert(sql="insert into answer values(nextval('answer_seq'),?,?,?)")
 	Answer save(Answer answer);
